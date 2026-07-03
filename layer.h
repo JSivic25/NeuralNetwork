@@ -19,7 +19,7 @@ public:
 private:
 	int numInputs{};
 	int numNeurons{};
-	std::string activation_function{};
+	std::string activationFunction{};
 	std::vector<double> biases{};
 	std::vector<std::vector<double>> weights{};
 	std::vector<double> previousInput{};
