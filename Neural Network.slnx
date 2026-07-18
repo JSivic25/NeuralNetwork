@@ -3,5 +3,6 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="../NeuralNetworkTests/NeuralNetworkTests.vcxproj" />
   <Project Path="Neural Network.vcxproj" Id="0b218e8c-f5ec-49fa-94bd-e5109112a523" />
 </Solution>

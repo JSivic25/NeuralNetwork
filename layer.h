@@ -23,5 +23,7 @@ private:
 	std::vector<double> biases{};
 	std::vector<std::vector<double>> weights{};
 	std::vector<double> previousInput{};
+
+	std::vector<double> computeWeightedSums(const std::vector<double>& inputs);
 };
 
