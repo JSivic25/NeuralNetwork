@@ -39,7 +39,9 @@ std::vector<double> layer::forwardPass(const std::vector<double>& inputs) {
 
 	std::vector<double> weightedSums = computeWeightedSums(inputs); 
 
-	return weightedSums;
+	std::vector<double> activatedOutput = applyActivationFunction(weightedSums);
+
+	return activatedOutput;
 }
 
 std::vector<double> layer::backProp(const std::vector<double>& errorSignal, double learningRate) {
@@ -58,4 +60,17 @@ std::vector<double> layer::computeWeightedSums(const std::vector<double>& inputs
 
 		return weightedSums;
 	};
+}
+
+std::vector<double> layer::applyActivationFunction(const std::vector<double>& weightedSums) {
+
+	std::vector<double> activatedOutput(numNeurons, 0.0);
+
+	if (activationFunction == "relu") {
+		for (int i = 0; i < numNeurons; i++) {
+			activatedOutput[i] = std::max(0.0, weightedSums[i]);
+		}
+	}
+
+	return activatedOutput;
 }

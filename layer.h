@@ -25,5 +25,6 @@ private:
 	std::vector<double> previousInput{};
 
 	std::vector<double> computeWeightedSums(const std::vector<double>& inputs);
+	std::vector<double> applyActivationFunction(const std::vector<double>& weightedSums);
 };
 
