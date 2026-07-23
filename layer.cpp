@@ -64,12 +64,17 @@ std::vector<double> layer::computeWeightedSums(const std::vector<double>& inputs
 
 std::vector<double> layer::applyActivationFunction(const std::vector<double>& weightedSums) {
 
+	if (activationFunction == "relu") {
+		return relu(weightedSums);
+	}
+}
+
+std::vector<double> layer::relu(const std::vector<double>& weightedSums)
+{
 	std::vector<double> activatedOutput(numNeurons, 0.0);
 
-	if (activationFunction == "relu") {
-		for (int i = 0; i < numNeurons; i++) {
-			activatedOutput[i] = std::max(0.0, weightedSums[i]);
-		}
+	for (int i = 0; i < numNeurons; i++) {
+		activatedOutput[i] = std::max(0.0, weightedSums[i]);
 	}
 
 	return activatedOutput;
