@@ -26,6 +26,6 @@ private:
 
 	std::vector<double> computeWeightedSums(const std::vector<double>& inputs);
 	std::vector<double> applyActivationFunction(const std::vector<double>& weightedSums);
-	std::vector<double> relu(const std::vector<double>& weightedSums);
+	std::vector<double> reluActivation(const std::vector<double>& weightedSums);
 };
 

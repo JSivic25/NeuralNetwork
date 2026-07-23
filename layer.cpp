@@ -17,6 +17,7 @@ void layer::loadWeights(const std::vector<std::vector<double>>& weights) {
 	}
 	this->weights = weights;
 }
+
 void layer::loadBiases(const std::vector<double>& biases) {
 	if (this->biases.size() != biases.size()) {
 		throw std::invalid_argument("Bias dimensions do not match the layer's configuration.");
@@ -27,6 +28,7 @@ void layer::loadBiases(const std::vector<double>& biases) {
 const std::vector<std::vector<double>>& layer::getWeights() const {
 	return weights;
 }
+
 const std::vector<double>& layer::getBiases() const {
 	return biases;
 }
@@ -65,11 +67,11 @@ std::vector<double> layer::computeWeightedSums(const std::vector<double>& inputs
 std::vector<double> layer::applyActivationFunction(const std::vector<double>& weightedSums) {
 
 	if (activationFunction == "relu") {
-		return relu(weightedSums);
+		return reluActivation(weightedSums);
 	}
 }
 
-std::vector<double> layer::relu(const std::vector<double>& weightedSums)
+std::vector<double> layer::reluActivation(const std::vector<double>& weightedSums)
 {
 	std::vector<double> activatedOutput(numNeurons, 0.0);
 
