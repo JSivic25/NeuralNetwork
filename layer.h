@@ -24,8 +24,15 @@ private:
 	std::vector<std::vector<double>> weights{};
 	std::vector<double> previousInput{};
 
+	//forward pass helpers
 	std::vector<double> computeWeightedSums(const std::vector<double>& inputs);
 	std::vector<double> applyActivationFunction(const std::vector<double>& weightedSums);
 	std::vector<double> reluActivation(const std::vector<double>& weightedSums);
+
+	//backprop helpers
+	std::vector<std::vector<double>> computeWeightGradients(const std::vector<double> errorSignal);
+	std::vector<double> computeNextErrorSignal(const std::vector<double> previousErrorSignal);
+	void updateWeights(std::vector<std::vector<double>> weightGradients, double learningRate);
+	void updateBiases(std::vector<double> biasGradient, double learningRate);
 };
 
